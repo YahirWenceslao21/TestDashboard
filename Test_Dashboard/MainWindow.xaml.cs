@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Effects;
 
 namespace Test_Dashboard
 {
@@ -23,6 +24,16 @@ namespace Test_Dashboard
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_Cerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

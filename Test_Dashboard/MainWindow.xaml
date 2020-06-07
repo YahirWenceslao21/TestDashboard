@@ -4,9 +4,94 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Test_Dashboard"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="600" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Column="1" Grid.Row="1">
+            <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+                <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF5F0F0"/>
+                    <GradientStop Color="#FFECEAEA" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
 
+                    <Rectangle Height="120" Margin="20" Fill="White" RadiusX="10" RadiusY="10"/>
+                    <Grid Margin="25" Height="125">
+                        <Grid Width="35" Height="50"  Background="#FFFFAF24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 0">
+                            <Grid.Effect>
+                                <DropShadowEffect ShadowDepth="6" Direction="135" Color="Maroon" Opacity="0.35" BlurRadius="0.0" />
+                            </Grid.Effect>
+                            <materialDesing:PackIcon Kind="ContentCopy" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Height="20" Width="20"/>
+                        </Grid>
+                        <TextBlock Text="Espacio Usado" HorizontalAlignment="Right" Foreground="#FF7C7474" Margin="5"/>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF9F7F7"/>
+                    <GradientStop Color="#FFCDC7C7" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFF7F5F5" RenderingBias="Quality" ShadowDepth="3"/>
+            </Grid.Effect>
+
+            <Grid Background="#FFA46FE4">
+                <TextBlock Text="DASHBORAD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="20"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1">
+                <Button Margin="10">
+                    <Grid Width="150">
+                        <materialDesing:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="14" Text="DASHBORAD" />
+                    </Grid>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        <Grid x:Name="GridBarraTitulo" Grid.ColumnSpan="2" Background="#ff8522dd" MouseDown="GridBarraTitulo_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button x:Name="btn_Bell" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesing:PackIcon Kind="Bell"/>
+                </Button>
+                <Button x:Name="btn_Account" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesing:PackIcon Kind="Account"/>
+                </Button>
+                <Button x:Name="btn_Cerrar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="btn_Cerrar_Click">
+                    <materialDesing:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
+
 </Window>
